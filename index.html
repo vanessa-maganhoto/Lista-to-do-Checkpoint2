@@ -5,65 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
     <title>Lista-to-do-Checkpoint2</title>
   </head>
   <body>
-    <div class="todo">
-      <h2 class="titulo">Lista To Do</h2>
 
-      <div class="container">
+    <header>
+      <nav class="opcao">
+        <a href="#">Tarefas</a>
+        <span>|</span>
+        <a href="#">API</a>
+      </nav>
 
-        <ul>
-          <li>
-            <div class="container-card">
-              <div class="card-header">
-                <span class="data-atual">Data atual</span>
-                <div class="data-fim">
-                  <label for="data-final">Data final</label>
-                  <input id= "data-final" type="text">
-                </div>
-              </div>
-              <div class="card-campo">
-                  <textarea name="title" id="title" cols="30" rows="1" placeholder="Título"></textarea>
-              </div>
-              <div class="card-campo">
-                <textarea name="descricao" id="descricao" rows="4" placeholder="Adicionar descrição"></textarea>
+    </header>
+
+    <div class="conteudo">
+      <h1 class="titulo">Tarefas</h1>
+
+
+      <ul class="tarefa-pendente">
+        <li class="tarefa">
+          <form action="">
+            <div class="container-input">
+              <img src="./img/Addpreto.svg" height="13px" alt="Adicionar Tarefa">
+              <input type="radio" />
+              <input type="text" placeholder="Digite e adicione a tarefa" />
+              <input type="date" id="prazo" name="prazo" value="2021-11-12" min="2021-11-12" max="2021-11-12">
+              <input type="date">
+              <input type="reset" value="reset">
             </div>
-            <div class="card-botao">
-                <button class="add-card">Adicionar tarefa</button>
-                <i class="bi bi-x-lg"></i>
-            </div>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <div class="container-card">
-              <div class="card-header">
-                <span class="data-atual">Data atual</span>
-                <div class="data-fim">
-                  <label for="data-final">Data final</label>
-                  <input id= "data-final" type="text">
-                </div>
-              </div>
-              <div class="card-campo">
-                  <textarea name="title" id="title" cols="30" rows="1" placeholder="Título"></textarea>
-              </div>
-              <div class="card-campo">
-                <textarea name="descricao" id="descricao" rows="4" placeholder="Adicionar descrição"></textarea>
-            </div>
-            <div class="card-botao">
-                <button class="add-card">Adicionar tarefa</button>
-                <i class="bi bi-x-lg"></i>
-            </div>
-          </li>
-        </ul>
-      </div>
-      </div>
-
-
+          </form>
+        </li>
+      </ul>
+     
     <script src="js/listtodo.js"></script>
   </body>
 </html>
