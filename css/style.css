@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -6,22 +10,23 @@
 header {
     width: 100%;
     overflow: hidden;
-    background: whitesmoke;
     padding: 0 3rem;
     margin: 0 10px;
 }
 
 body{
-    background:#fffffa;
+    background:#EFEFEF;
 }
 
 .opcao{
     float: left;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.modo{
-    float: right;
+.tarefa{
+    list-style: none;
 }
+
 
 header nav{
     line-height: 100px;
@@ -29,18 +34,92 @@ header nav{
 }
 
 header nav a:hover{
-    background-color:skyblue;
-    border-radius: 10px;
+    text-decoration-line: underline;
+    text-decoration-style: solid
+
 }
 
 .conteudo{
-    background-color: skyblue;
+    
     width: 90%;
     max-width:700px;
     margin: auto;
     overflow: hidden;
 }
 
+
+
 button{
     padding: 5px;
 }
+
+/*Modo claro*/
+
+.titulo{
+    margin: 30px;
+    font-family: 'Ubuntu', sans-serif;
+    color:#56ABEF;
+    text-align: center;
+}
+
+.clique-modo-escuro{
+    position:fixed;
+    right: 30px;
+    text-decoration: none;
+    color:#232323;
+}
+
+.clique-modo-escuro:hover{
+    color: #232323;
+}
+
+.nav-modo-claro{
+    text-decoration: none;
+    color:#232323;
+}
+
+.nav-modo-claro:hover{
+    color: #232323;
+
+}
+
+/*Modo Escuro*/
+
+.claro-escuro{
+    background-color:#232323;
+}
+
+.claro-escuro span{
+    color: #EFEFEF;
+}
+
+.claro-escuro .titulo{
+    color: #595AD3;
+}
+
+.claro-escuro .nav-modo-claro{
+    color: #EFEFEF;
+}
+
+.claro-escuro .nav-modo-claro:hover{
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    
+}
+
+.claro-escuro .clique-modo-escuro{
+    color: #EFEFEF;
+}
+
+
+/*PÁGINA API*/
+
+
+.tarefaConcluida{
+    text-decoration: line-through;
+}
+
+#gerarCard{
+    align-items: center;
+}
+
