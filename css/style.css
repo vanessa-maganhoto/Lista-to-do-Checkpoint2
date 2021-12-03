@@ -157,7 +157,7 @@ button{
     color: #cc8a29;
 }
 
-.claro-escuro .prazo-todo {
+.escuro .prazo-todo {
     color: #eaa22d;
 }
 
@@ -194,19 +194,30 @@ button{
 .concluida .linha {
     border-bottom: 1px solid #56ABEF;
     color: #56ABEF;
-    text-decoration: dashed;
 }
 
-.concluida .btn path {
-    stroke: #56ABEF;
+.escuro .preenchida path {
+    stroke: #595AD3;
+}
+
+.escuro .preenchida path:nth-last-child(1) {
+    fill: #595AD3;
 }
 
 .concluida .editar-todo path {
     fill: #56ABEF;
 }
 
-.claro-escuro .concluida .linha {
+.escuro .concluida .linha {
     border-bottom: 1px solid #595AD3;
+    color: #595AD3;
+}
+
+.concluida .titulo-todo{
+    text-decoration: line-through;
+}
+
+.escuro .concluida .titulo-todo{
     color: #595AD3;
 }
 
@@ -250,54 +261,66 @@ button{
 
 /*Modo Escuro*/
 
-.claro-escuro{
+.escuro{
     background-color:#232323;
 }
 
-.claro-escuro span{
+.escuro span{
     color: #EFEFEF;
 }
 
-.claro-escuro .titulo{
+.escuro .titulo{
     color: #595AD3;
 }
 
-.claro-escuro .nav-modo-claro{
+.escuro .nav-modo-claro{
     color: #EFEFEF;
 }
 
-.claro-escuro .nav-modo-claro:hover{
+.escuro .nav-modo-claro:hover{
     text-decoration-line: underline;
     text-decoration-style: solid;
     
 }
 
-.claro-escuro .clique-modo-escuro{
+.escuro .clique-modo-escuro{
     color: #EFEFEF;
 }
 
-.claro-escuro .tarefa .btn path {
+.escuro .tarefa:not(.concluida) .btn path {
     stroke: #efefef;
 }
 
-.claro-escuro #li-adicionar .btn path {
+.escuro #li-adicionar .btn path {
     fill: #efefef;
 }
 
-.claro-escuro .linha {
+.escuro .linha {
     border-bottom: 1px solid #EFEFEF;
 }
 
-.claro-escuro .dataCriacao-todo path {
+.escuro .dataCriacao-todo path {
     fill: #595AD3;
 }
 
-.claro-escuro .prazo-todo path {
+.escuro .prazo-todo path {
     fill: #eaa22d;
 }
 
-.claro-escuro .editar-todo path {
+.escuro .editar-todo path {
     fill: #EFEFEF;
+}
+
+.escuro .concluida .editar-todo path {
+    fill: #595AD3;
+}
+
+.escuro .dataCriacao-todo span {
+    color: #595AD3;
+}
+
+.escuro .prazo-todo span {
+    color: #eaa22d;
 }
 
 /*PÁGINA API*/

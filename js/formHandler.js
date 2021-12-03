@@ -35,3 +35,8 @@ function submit(event) {
 
 // Ouve o usuario finalizar o formulario
 form.addEventListener("submit", submit);
+
+const botaoAdicionar = document.querySelector("#li-adicionar > button");
+botaoAdicionar.addEventListener('click', (e) => {
+  generateCard({dataCriacao: "21.11", prazo: "30.11", titulo: "Ligar para o médico..."});
+})
