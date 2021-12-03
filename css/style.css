@@ -39,19 +39,184 @@ header nav a:hover{
 
 }
 
-.conteudo{
-    
+main {
     width: 90%;
     max-width:700px;
     margin: auto;
     overflow: hidden;
 }
 
-
+/* Estilização dos botões de adicionar tarefas, incluindo animação durante hover e remoção do outlide */
 
 button{
     padding: 5px;
+    background-color: transparent;
 }
+
+.btn {
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+
+
+.btn:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+  }
+
+.btn svg {
+    height: 2rem;
+    width: 2rem;
+}
+
+/* Estilo da lista de tarefas */
+
+.tarefa {
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    justify-content: center;
+    margin: 1.5rem;
+}
+
+.tarefa .btn {
+    margin-bottom: .5rem;
+}
+
+#li-adicionar .btn {
+    margin-bottom: 2rem;
+}
+
+.linha {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgba(35, 35, 35, 0.4);
+    padding: 0 1rem;
+    position: relative;
+}
+
+.vazio {
+    height: 1.75rem;
+}
+
+.titulo-todo {
+    font-size: 1.75rem;
+    padding-bottom: 1.125rem;
+}
+
+.tarefa:hover .fim-da-linha {
+    opacity: 1;
+}
+
+.fim-da-linha {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    display: flex;
+    align-items: center;
+    float: right;
+    transition: opacity ease-out 0.5s;
+}
+
+.datas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.datas > span {
+    display: flex;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+.dataCriacao-todo {
+    margin-bottom: 8px;
+    color: #56ABEF;
+}
+
+.dataCriacao-todo svg {
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-right: 8px;
+}
+
+.dataCriacao-todo path {
+    fill: #56ABEF;
+}
+
+.prazo-todo {
+    color: #cc8a29;
+}
+
+.claro-escuro .prazo-todo {
+    color: #eaa22d;
+}
+
+.prazo-todo svg {
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-right: 8px;
+}
+
+.prazo-todo path {
+    fill: #cc8a29;
+}
+
+.editar-todo.btn {
+    margin-bottom: 1rem;
+}
+
+.editar-todo {
+    height: min-content;
+    padding: 2px;
+}
+
+.editar-todo svg {
+    height: 1.5rem;
+    margin-bottom: -1rem;
+}
+
+.editar-todo path {
+    fill: #232323;
+}
+
+/* Lista de tarefas concluídas */
+
+.concluida .linha {
+    border-bottom: 1px solid #56ABEF;
+    color: #56ABEF;
+    text-decoration: dashed;
+}
+
+.concluida .btn path {
+    stroke: #56ABEF;
+}
+
+.concluida .editar-todo path {
+    fill: #56ABEF;
+}
+
+.claro-escuro .concluida .linha {
+    border-bottom: 1px solid #595AD3;
+    color: #595AD3;
+}
+
+/* Estilo do formulário */
+
+#adicionar-form {
+    display: flex;
+    align-items: center;
+}
+
 
 /*Modo claro*/
 
@@ -111,6 +276,29 @@ button{
     color: #EFEFEF;
 }
 
+.claro-escuro .tarefa .btn path {
+    stroke: #efefef;
+}
+
+.claro-escuro #li-adicionar .btn path {
+    fill: #efefef;
+}
+
+.claro-escuro .linha {
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.claro-escuro .dataCriacao-todo path {
+    fill: #595AD3;
+}
+
+.claro-escuro .prazo-todo path {
+    fill: #eaa22d;
+}
+
+.claro-escuro .editar-todo path {
+    fill: #EFEFEF;
+}
 
 /*PÁGINA API*/
 

@@ -10,3 +10,9 @@ function claroEscuro(){
 }
 
 modoEscuro.onclick= claroEscuro 
+
+
+// Detecta se o modo preferido do navegador é o 'dark' e chama a função que ativa o modo escuro do site.
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    claroEscuro();
+}
