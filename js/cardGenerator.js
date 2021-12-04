@@ -1,3 +1,5 @@
+// Uma ruma de códigos svg para adicionar através do innerHTML nos respectivos botões.
+// Fiz assim porque não descobri como ler um arquivo e depois injetar seu conteúdo no código js usando a api do browser.
 const bolinhaSvg = `<svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M44.3401 83.6802C66.0671 83.6802 83.6802 66.0671 83.6802 44.3401C83.6802 22.6132 66.0671 5 44.3401 5C22.6132 5 5 22.6132 5 44.3401C5 66.0671 22.6132 83.6802 44.3401 83.6802Z" stroke="#232323" stroke-width="9" stroke-miterlimit="10"/>
 </svg>`;
@@ -27,7 +29,7 @@ const prazoSvg = `<svg width="73" height="81" viewBox="0 0 73 81" fill="none" xm
 <rect width="72.9" height="81" fill="white"/>
 </clipPath>
 </defs>
-</svg>`
+</svg>`;
 
 const pontosSvg = `<svg width="14" height="56" viewBox="0 0 14 56" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_406_128)">
@@ -38,7 +40,7 @@ const pontosSvg = `<svg width="14" height="56" viewBox="0 0 14 56" fill="none" x
 <rect width="14" height="55.99" fill="white"/>
 </clipPath>
 </defs>
-</svg>`
+</svg>`;
 
 const lixeiraSvg = `<svg width="60" height="76" viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_406_130)">
@@ -51,47 +53,48 @@ const lixeiraSvg = `<svg width="60" height="76" viewBox="0 0 60 76" fill="none" 
 </defs>
 </svg>`;
 
+// Função que recebe as informações de cada tarefa (obtidas no formulário) e gera um elemento já estilizado contendo-as.
 function generateCard(info = { dataCriacao: "", prazo: "", titulo: "" }) {
-  
-  const tarefa = document.createElement('li');
+  const tarefa = document.createElement("li");
   tarefa.className = "tarefa";
 
-  const marcarBtn = document.createElement('button');
+  const marcarBtn = document.createElement("button");
   marcarBtn.classList.add("btn", "marcar");
   marcarBtn.innerHTML = bolinhaSvg;
-  marcarBtn.addEventListener('click', (e) => {
-    moveToDone(e.currentTarget.parentElement)
-  })
+  // Adiciona a função de mover para a lista de concluídas quando clicar no botão.
+  marcarBtn.addEventListener("click", (e) => {
+    moveToDone(e.currentTarget.parentElement);
+  });
 
-  const linha = document.createElement('div');
-  linha.className = 'linha';
+  const linha = document.createElement("div");
+  linha.className = "linha";
 
-  const tituloTodo = document.createElement('span');
+  const tituloTodo = document.createElement("span");
   tituloTodo.className = "titulo-todo";
   tituloTodo.innerText = info.titulo;
 
   linha.appendChild(tituloTodo);
 
-  const fimDaLinha = document.createElement('span');
+  const fimDaLinha = document.createElement("span");
   fimDaLinha.className = "fim-da-linha";
 
-  const datas = document.createElement('span');
+  const datas = document.createElement("span");
   datas.className = "datas";
 
-  const dataCriacaoTodo = document.createElement('span');
+  const dataCriacaoTodo = document.createElement("span");
   dataCriacaoTodo.className = "dataCriacao-todo";
-  dataCriacaoTodo.innerHTML = dataCriacaoSvg
-  
-  const dataCriacao = document.createElement('span');
+  dataCriacaoTodo.innerHTML = dataCriacaoSvg;
+
+  const dataCriacao = document.createElement("span");
   dataCriacao.innerText = info.dataCriacao;
 
   dataCriacaoTodo.appendChild(dataCriacao);
-  
-  const prazoTodo = document.createElement('span');
+
+  const prazoTodo = document.createElement("span");
   prazoTodo.className = "prazo-todo";
   prazoTodo.innerHTML = prazoSvg;
 
-  const prazo = document.createElement('span');
+  const prazo = document.createElement("span");
   prazo.innerText = info.prazo;
 
   prazoTodo.appendChild(prazo);
@@ -100,60 +103,66 @@ function generateCard(info = { dataCriacao: "", prazo: "", titulo: "" }) {
   datas.appendChild(prazoTodo);
 
   fimDaLinha.appendChild(datas);
-  
-  const editarTodo = document.createElement('button');
+
+  const editarTodo = document.createElement("button");
   editarTodo.classList.add("editar-todo", "btn");
   editarTodo.innerHTML = pontosSvg;
+  // Adiciona a função de abrir o modal de edição de tarefa ao botão de editar.
+  editarTodo.addEventListener("click", (e) => {
+    // abrir modal de edição
+  });
 
   fimDaLinha.appendChild(editarTodo);
 
-  linha.appendChild(fimDaLinha)
+  linha.appendChild(fimDaLinha);
 
   tarefa.appendChild(marcarBtn);
   tarefa.appendChild(linha);
 
-  const toDoList = document.getElementById('to-do-list');
-  const liAdicionar = document.getElementById('li-adicionar');
+  // Aqui não fazemos apenas um appendChild, pois não queremos que a nova tarefa fique abaixo do botão de adicionar tarefas, mas acima. 
+  const toDoList = document.getElementById("to-do-list");
+  const liAdicionar = document.getElementById("li-adicionar");
   toDoList.insertBefore(tarefa, liAdicionar);
 }
 
-function moveToDone (target) {
-  
+// Função que move uma tarefa para a lista de tarefas concluídas.
+function moveToDone(target) {
   const tarefasConcluidas = document.querySelector(".tarefas-concluidas");
-
+  // Obs: quando o appendChild é chamado, ele já se responsabiliza não só por colocar o elemento no local desejado, mas apagá-lo do local antigo, caso já estivesse na árvore de elementos.
   tarefasConcluidas.appendChild(target);
 
-  target.classList.add("concluida")
+  target.classList.add("concluida");
 
+  // Aqui é dado o nome da variável não pensando no que o querySelector retornou, mas, sim, pensando no elemento que vamos transformá-lo.
   const desmarcarBtn = target.querySelector(".marcar");
 
   desmarcarBtn.className = "btn preenchida";
   desmarcarBtn.innerHTML = preenchidaSvg;
-  desmarcarBtn.addEventListener('click', (e) => {
+  desmarcarBtn.addEventListener("click", (e) => {
     moveToDo(e.currentTarget.parentElement);
-  })
+  });
 
   const deletarBtn = target.querySelector(".editar-todo");
 
   deletarBtn.innerHTML = lixeiraSvg;
-  deletarBtn.addEventListener('click', () => {
+  deletarBtn.addEventListener("click", () => {
     target.remove();
-  })
-
+  });
 }
 
-function moveToDo (target) {
-  
-  const toDoList = document.getElementById('to-do-list');
-  const liAdicionar = document.getElementById('li-adicionar');
+// Função que move uma tarefa concluída para a lista de tarefas a fazer.
+function moveToDo(target) {
+  const toDoList = document.getElementById("to-do-list");
+  const liAdicionar = document.getElementById("li-adicionar");
   toDoList.insertBefore(target, liAdicionar);
 
   target.className = "tarefa";
 
+  // Aqui é dado o nome da variável não pensando no que o querySelector retornou, mas, sim, pensando no elemento que vamos transformá-lo.
   const marcarBtn = target.querySelector(".preenchida");
-  marcarBtn.addEventListener('click', (e) => {
-    moveToDone(e.currentTarget.parentElement)
-  })
+  marcarBtn.addEventListener("click", (e) => {
+    moveToDone(e.currentTarget.parentElement);
+  });
 
   marcarBtn.className = "btn marcar";
   marcarBtn.innerHTML = bolinhaSvg;
@@ -161,15 +170,7 @@ function moveToDo (target) {
   const editarBtn = target.querySelector(".editar-todo");
 
   editarBtn.innerHTML = pontosSvg;
-  editarBtn.addEventListener('click', () => {
+  editarBtn.addEventListener("click", () => {
     // abrir modal de edição;
-  })
-}
-
-const botoesMarcar = document.querySelectorAll(".marcar");
-
-botoesMarcar.forEach((botao) => {
-  botao.addEventListener("click", (e) => {
-    moveToDone(e.currentTarget.parentElement);
   });
-});
+}

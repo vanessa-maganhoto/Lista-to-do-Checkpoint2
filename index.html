@@ -13,7 +13,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <title>Lista-to-do-Checkpoint2</title>
+    <title>Gotta Do</title>
   </head>
   <body>
     <header>
@@ -27,10 +27,10 @@
     <main>
       <h1 class="titulo">tarefas</h1>
       <ul id="to-do-list" class="tarefa-pendente">
-        <li class="tarefa">
-          <button
-            class="btn marcar"
-          >
+        
+        <!-- Template para tarefas a fazer -->
+        <!-- <li class="tarefa">
+          <button class="btn marcar">
             <svg
               width="89"
               height="89"
@@ -118,10 +118,14 @@
               </button>
             </span>
           </div>
-        </li>
+        </li> -->
+        
+        <!-- Li que serve como botão para adicionar novas tarefas -->
         <li id="li-adicionar" class="tarefa">
           <button
             class="btn"
+            data-toggle="modal"
+            data-target="#adicionarTarefa"
           >
             <svg
               width="82"
@@ -143,10 +147,10 @@
       </ul>
 
       <ul class="tarefas-concluidas">
-        <li class="tarefa concluida">
-          <button
-            class="btn preenchida"
-          >
+
+        <!-- Template para tarefas concluídas -->
+        <!-- <li class="tarefa concluida">
+          <button class="btn preenchida">
             <svg
               width="89"
               height="89"
@@ -216,20 +220,29 @@
                 </span>
               </span>
               <button class="editar-todo btn">
-                <svg width="60" height="76" viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="60"
+                  height="76"
+                  viewBox="0 0 60 76"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <g clip-path="url(#clip0_406_130)">
-                  <path d="M46.45 25.33V67.56H12.67V25.33H46.45ZM40.12 0H19L14.78 4.21997H0V12.67H59.12V4.21997H44.34L40.12 0ZM54.89 16.89H4.23001V67.56C4.23792 69.796 5.12966 71.9381 6.71075 73.5192C8.29185 75.1003 10.434 75.9921 12.67 76H46.45C48.686 75.9921 50.8281 75.1003 52.4092 73.5192C53.9903 71.9381 54.8821 69.796 54.89 67.56V16.89Z" fill="#232323"/>
+                    <path
+                      d="M46.45 25.33V67.56H12.67V25.33H46.45ZM40.12 0H19L14.78 4.21997H0V12.67H59.12V4.21997H44.34L40.12 0ZM54.89 16.89H4.23001V67.56C4.23792 69.796 5.12966 71.9381 6.71075 73.5192C8.29185 75.1003 10.434 75.9921 12.67 76H46.45C48.686 75.9921 50.8281 75.1003 52.4092 73.5192C53.9903 71.9381 54.8821 69.796 54.89 67.56V16.89Z"
+                      fill="#232323"
+                    />
                   </g>
                   <defs>
-                  <clipPath id="clip0_406_130">
-                  <rect width="59.11" height="76" fill="white"/>
-                  </clipPath>
+                    <clipPath id="clip0_406_130">
+                      <rect width="59.11" height="76" fill="white" />
+                    </clipPath>
                   </defs>
-                  </svg>
+                </svg>
               </button>
             </span>
           </div>
-        </li>
+        </li> -->
       </ul>
     </main>
 
@@ -245,9 +258,7 @@
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Adicionar nova tarefa
-            </h5>
+            <h5 class="modal-title">Adicionar nova tarefa</h5>
             <button
               type="button"
               class="close"
@@ -259,26 +270,37 @@
           </div>
           <div class="modal-body">
             <form id="adicionar-form">
-              <div class="container-input">
-                <label for="dataCriacao">Data de criação:</label>
+              <div class="formfield">
+                <label for="dataCriacao">data de criação</label>
                 <input type="date" name="dataCriacao" disabled />
-                <label for="prazo">Prazo:</label>
+              </div>
+              <div class="formfield">
+                <label for="prazo">prazo</label>
                 <input type="date" id="prazo" name="prazo" />
+              </div>
+              <div class="formfield">
+                <label for="titulo">título</label>
                 <input
                   type="text"
                   name="titulo"
                   minlength="10"
                   placeholder="Ex: Ligar para o médico..."
                 />
-                <button class="btn" type="submit" onclick="this.blur()" ons>
-                  <img
-                    class="imagem-botao"
-                    src="img/Addpreto.svg"
-                    height="18px"
-                    alt="Adicionar Tarefa"
-                  />
-                </button>
               </div>
+              <button class="btn" type="submit" onclick="this.blur()" ons>
+                <svg
+                  width="82"
+                  height="82"
+                  viewBox="0 0 82 82"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M44.81 20.37H36.66V36.66H20.37V44.85H36.66V61.15H44.81V44.85H61.11V36.7H44.81V20.37ZM40.74 0C32.6824 0 24.8058 2.38937 18.1061 6.86594C11.4064 11.3425 6.18469 17.7052 3.10118 25.1495C0.0176661 32.5937 -0.789141 40.7852 0.782821 48.688C2.35478 56.5908 6.23489 63.85 11.9325 69.5475C17.6301 75.2451 24.8893 79.1252 32.792 80.6972C40.6948 82.2692 48.8863 81.4624 56.3306 78.3788C63.7748 75.2953 70.1375 70.0736 74.6141 63.3739C79.0907 56.6743 81.48 48.7976 81.48 40.74C81.4774 29.9359 77.1843 19.5751 69.5446 11.9354C61.905 4.29574 51.5441 0.00265099 40.74 0ZM40.74 73.33C34.2939 73.332 27.992 71.4223 22.6313 67.8425C17.2706 64.2626 13.0919 59.1735 10.6237 53.2186C8.15548 47.2637 7.50864 40.7107 8.765 34.3882C10.0214 28.0657 13.1245 22.2577 17.6819 17.6989C22.2393 13.1402 28.0462 10.0352 34.3684 8.77695C40.6905 7.51864 47.2437 8.16346 53.1994 10.6298C59.155 13.0962 64.2454 17.2733 67.8269 22.6329C71.4084 27.9925 73.32 34.2939 73.32 40.74C73.3094 49.3784 69.8739 57.6602 63.7665 63.7694C57.6591 69.8786 49.3785 73.3168 40.74 73.33Z"
+                    fill="#232323"
+                  />
+                </svg>
+              </button>
             </form>
           </div>
         </div>

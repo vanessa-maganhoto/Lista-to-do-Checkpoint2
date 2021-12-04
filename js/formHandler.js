@@ -1,42 +1,54 @@
-const form = document.querySelector("#adicionar-form");
+// Adiciona o event listener de abrir o formulário para todo li de adionar, ao invés de apenas no botão
+// Obs: usa Jquery porque o modal a ser aberto é do bootstrap
+document.querySelector("#li-adicionar").addEventListener('click', (e) => {
+  $('#adicionarTarefa').modal('show');
+})
 
-// inputs
-const dataCriacaoInput = document.querySelector("input[name=dataCriacao]");
-const prazoInput = document.querySelector("input[name=prazo]");
-const tituloInput = document.querySelector("input[name=titulo]");
+// Para evitar quebra do alinhamento entre data de criação e prazo, achei de bom tom deixar sempre o dia do mês com 2 dígitos.
+// Por isso essa função para adicionar o '0' na frente em dias com apenas 1 dígito.
+function doubleDigit(number) {
+  if(number > 10) return number;
+  else return `0${number}`;
+}
 
-// wrapper
-let contentWrapper = document.querySelector("#to-do-list");
+// Função para formatar as datas do formulário para o formato com o qual serão exibidas.
+function formatDate(date) {
+  // Concateno string com a data para indicar o fuso horário correto (-3h)
+  const dateObj = new Date(date + "T00:00:00-03:00");
 
+  return `${doubleDigit(dateObj.getDate())}.${dateObj.getMonth() + 1}`;
+}
+
+// Callback que será acrescentada ao event listener do tipo 'submit' do elemento form.
+// Essa callback lida com a apreensão dos valores dos input e a criação e anexação do novo elemento 'tarefa'.
 function submit(event) {
   event.preventDefault();
+  
+  // Seleciona os elementos dos inputs
+  const dataCriacaoEl = document.querySelector("input[name=dataCriacao]");
+  const prazoEl = document.querySelector("input[name=prazo]");
+  const tituloEl = document.querySelector("input[name=titulo]");
 
-  // Cria os elementos
-  let dataCriacao = document.createElement("span");
-  let prazo = document.createElement("span");
-  let titulo = document.createElement("strong");
+  // Pega o valor dos inputs
+  const dataCriacao = formatDate(dataCriacaoEl.value);
+  const prazo = formatDate(prazoEl.value);
+  const titulo = tituloEl.value;
 
-  // Insere os valores
-  dataCriacao.innerHTML = `Data de criação: ${dataCriacaoInput.value}`;
-  prazo.innerHTML = `Prazo: ${prazoInput.value}`;
-  titulo.innerHTML = `Título: ${tituloInput.value}`;
+  // Gera o elemento html e o anexa à árvore de elementos
+  generateCard({
+    dataCriacao,
+    prazo,
+    titulo
+  });
 
-  // Cria o elemento pai para reunir os filhos
-  let li = document.createElement("li");
+  // Reinicia os valores dos inputs
+  prazoEl.value = dateToString(tomorrowDate);
+  tituloEl.value = "";
+  $('#adicionarTarefa').modal('hide');
 
-  // Junta os elementos filhos ao pai
-  li.appendChild(titulo);
-  li.appendChild(dataCriacao);
-  li.appendChild(prazo);
-
-  // Junta o elemento pai ao elemento centralizador dos itens
-  contentWrapper.appendChild(li);
+  
 }
 
 // Ouve o usuario finalizar o formulario
+const form = document.querySelector("#adicionar-form");
 form.addEventListener("submit", submit);
-
-const botaoAdicionar = document.querySelector("#li-adicionar > button");
-botaoAdicionar.addEventListener('click', (e) => {
-  generateCard({dataCriacao: "21.11", prazo: "30.11", titulo: "Ligar para o médico..."});
-})

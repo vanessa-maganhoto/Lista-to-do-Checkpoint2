@@ -8,7 +8,7 @@
 }
 
 header {
-    width: 100%;
+    width: 90%;
     overflow: hidden;
     padding: 0 3rem;
     margin: 0 10px;
@@ -49,7 +49,6 @@ main {
 /* Estilização dos botões de adicionar tarefas, incluindo animação durante hover e remoção do outlide */
 
 button{
-    padding: 5px;
     background-color: transparent;
 }
 
@@ -62,8 +61,6 @@ button{
 .btn:hover {
     transform: scale(1.1);
 }
-
-
 
 .btn:focus:not(:focus-visible) {
     outline: 0;
@@ -87,6 +84,14 @@ button{
 
 .tarefa .btn {
     margin-bottom: .5rem;
+}
+
+#li-adicionar:hover {
+    cursor: pointer;
+}
+
+#li-adicionar:hover .btn {
+    transform: scale(1.1);
 }
 
 #li-adicionar .btn {
@@ -196,36 +201,79 @@ button{
     color: #56ABEF;
 }
 
-.escuro .preenchida path {
-    stroke: #595AD3;
-}
-
-.escuro .preenchida path:nth-last-child(1) {
-    fill: #595AD3;
-}
-
 .concluida .editar-todo path {
     fill: #56ABEF;
-}
-
-.escuro .concluida .linha {
-    border-bottom: 1px solid #595AD3;
-    color: #595AD3;
 }
 
 .concluida .titulo-todo{
     text-decoration: line-through;
 }
 
-.escuro .concluida .titulo-todo{
-    color: #595AD3;
+/* Estilo do modal e formulário */
+
+.modal-content {
+    background-color: #EFEFEF;
 }
 
-/* Estilo do formulário */
+.modal-header {
+    border-bottom: 1px solid rgba(35, 35, 35, 0.3) !important;
+}
+
+.modal-title {
+    font-weight: 700;
+}
 
 #adicionar-form {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.formfield {
+    position: relative;
+    width: 25%;
+    margin: 0 8px;
+}
+
+.formfield:nth-child(3) {
+    width: 100%;
+}
+
+.formfield label {
+    display: block;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: -2px;
+}
+
+label[for=dataCriacao] {
+    color: #56ABEF;
+}
+
+label[for=prazo] {
+    color: #cc8a29;
+}
+
+.formfield input {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid rgba(35, 35, 35, 0.3);
+    border-radius: 4px 4px 0 0;
+}
+
+input[name=dataCriacao] {
+    color: #56ABEF;
+}
+
+input[name=prazo] {
+    color: #cc8a29;
+}
+
+#adicionar-form button {
+    margin-bottom: -2rem;
 }
 
 
@@ -321,6 +369,63 @@ button{
 
 .escuro .prazo-todo span {
     color: #eaa22d;
+}
+
+.escuro .preenchida path {
+    stroke: #595AD3;
+}
+
+.escuro .preenchida path:nth-last-child(1) {
+    fill: #595AD3;
+}
+
+.escuro .concluida .linha {
+    border-bottom: 1px solid #595AD3;
+    color: #595AD3;
+}
+
+.escuro .concluida .titulo-todo{
+    color: #595AD3;
+}
+
+.escuro .modal-content {
+    color: #EFEFEF;
+    background-color: #232323;
+    font-family: 'Ubunto', sans-serif;
+}
+
+.escuro .modal-header {
+    border-bottom: 1px solid rgba(239, 239, 239, 0.3) !important;
+}
+
+.escuro label[for=dataCriacao] {
+    color: #595AD3;
+}
+
+.escuro label[for=prazo] {
+    color: #eaa22d;
+}
+
+.escuro .formfield input {
+    background-color: rgba(239, 239, 239, 0.1);
+    color: #EFEFEF;
+    border-bottom: 1px solid rgba(239, 239, 239, 0.3);
+}
+
+.escuro .formfield input::-webkit-calendar-picker-indicator {
+    filter: invert(80%) sepia(26%) saturate(3941%) hue-rotate(342deg) brightness(99%) contrast(84%);
+}
+
+.escuro input[name=dataCriacao] {
+    color: #595AD3;
+}
+
+.escuro input[name=prazo] {
+    color: #eaa22d;
+}
+
+.escuro #adicionar-form button path {
+    fill: #efefef;
 }
 
 /*PÁGINA API*/
