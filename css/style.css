@@ -30,6 +30,8 @@ body {
 .opcao {
     float: left;
     font-family: var(--ff-body);
+    font-size: 1rem;
+    position: fixed;
 }
 
 .tarefa {
@@ -89,6 +91,7 @@ button {
     font-family: var(--ff-body);
     justify-content: center;
     margin: 1.5rem;
+    font-size: 1.75rem;
 }
 
 .tarefa .btn {
@@ -295,6 +298,7 @@ input[name=prazo] {
     font-family: var(--ff-headings);
     color: var(--clr-blue);
     text-align: center;
+    font-size: 2.5rem;
 }
 
 .clique-modo-escuro {
@@ -452,4 +456,36 @@ input[name=prazo] {
 .escuro #gerarCard {
     color: var(--clr-white);
     border-color: var(--clr-white);
+}
+
+/* Responsividade */
+
+@media(max-width: 1024px){
+    h1.titulo{
+        margin-top: 83px;
+    }
+}
+
+@media(max-width: 768px){
+    h1.titulo{
+        font-size: 1.75rem;
+        margin-top: 83px;
+    }
+    nav.opcao{
+        font-size: .75rem;
+    }
+
+    #gerarCard{
+        font-size: .8rem;
+    }
+
+    .titulo-todo{
+        font-size: 1.25rem;
+    }
+
+    .btn svg {
+        width: 1rem;
+        height: 1rem;
+    }
+
 }
