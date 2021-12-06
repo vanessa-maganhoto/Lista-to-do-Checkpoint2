@@ -488,4 +488,12 @@ input[name=prazo] {
         height: 1rem;
     }
 
+    .formfield label {
+        font-size: 1rem;
+    }
+
+    .formfield input {
+        padding: 0.2rem;
+    }
+
 }
