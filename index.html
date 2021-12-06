@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="img/todo-favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <title>Gotta Do</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <nav class="opcao">
-        <a href="#" class="nav-modo-claro">Tarefas</a>
-        <span>|</span>
-        <a href="paginaAPI.html" class="nav-modo-claro">API</a>
-        <a href="#" class="clique-modo-escuro">Modo escuro</a>
-      </nav>
+        <nav class="opcao">
+            <a href="#" class="nav-modo-claro">Tarefas</a>
+            <span>|</span>
+            <a href="paginaAPI.html" class="nav-modo-claro">API</a>
+            <a href="#" class="clique-modo-escuro">Modo escuro</a>
+        </nav>
     </header>
     <main>
-      <h1 class="titulo">tarefas</h1>
-      <ul id="to-do-list" class="tarefa-pendente">
-        
-        <!-- Template para tarefas a fazer -->
-        <!-- <li class="tarefa">
+        <h1 class="titulo">tarefas</h1>
+        <ul id="to-do-list" class="tarefa-pendente">
+
+            <!-- Template para tarefas a fazer -->
+            <!-- <li class="tarefa">
           <button class="btn marcar">
             <svg
               width="89"
@@ -119,14 +116,10 @@
             </span>
           </div>
         </li> -->
-        
-        <!-- Li que serve como botão para adicionar novas tarefas -->
-        <li id="li-adicionar" class="tarefa">
-          <button
-            class="btn"
-            data-toggle="modal"
-            data-target="#adicionarTarefa"
-          >
+
+            <!-- Li que serve como botão para adicionar novas tarefas -->
+            <li id="li-adicionar" class="tarefa">
+                <button class="btn" data-toggle="modal" data-target="#adicionarTarefa">
             <svg
               width="82"
               height="82"
@@ -140,16 +133,16 @@
               />
             </svg>
           </button>
-          <div class="linha vazia">
-            <span class="vazio"></span>
-          </div>
-        </li>
-      </ul>
+                <div class="linha vazia">
+                    <span class="vazio"></span>
+                </div>
+            </li>
+        </ul>
 
-      <ul class="tarefas-concluidas">
+        <ul class="tarefas-concluidas">
 
-        <!-- Template para tarefas concluídas -->
-        <!-- <li class="tarefa concluida">
+            <!-- Template para tarefas concluídas -->
+            <!-- <li class="tarefa concluida">
           <button class="btn preenchida">
             <svg
               width="89"
@@ -243,51 +236,34 @@
             </span>
           </div>
         </li> -->
-      </ul>
+        </ul>
     </main>
 
     <!-- Código do modal -->
-    <div
-      class="modal fade"
-      id="adicionarTarefa"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="Modal-de-adicionar-tarefa"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Adicionar nova tarefa</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+    <div class="modal fade" id="adicionarTarefa" tabindex="-1" role="dialog" aria-labelledby="Modal-de-adicionar-tarefa" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar nova tarefa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <form id="adicionar-form">
-              <div class="formfield">
-                <label for="dataCriacao">data de criação</label>
-                <input type="date" name="dataCriacao" disabled />
-              </div>
-              <div class="formfield">
-                <label for="prazo">prazo</label>
-                <input type="date" id="prazo" name="prazo" />
-              </div>
-              <div class="formfield">
-                <label for="titulo">título</label>
-                <input
-                  type="text"
-                  name="titulo"
-                  minlength="10"
-                  placeholder="Ex: Ligar para o médico..."
-                />
-              </div>
-              <button class="btn" type="submit" onclick="this.blur()" ons>
+                </div>
+                <div class="modal-body">
+                    <form id="adicionar-form">
+                        <div class="formfield">
+                            <label for="dataCriacao">data de criação</label>
+                            <input type="date" name="dataCriacao" disabled />
+                        </div>
+                        <div class="formfield">
+                            <label for="prazo">prazo</label>
+                            <input type="date" id="prazo" name="prazo" />
+                        </div>
+                        <div class="formfield">
+                            <label for="titulo">título</label>
+                            <input type="text" name="titulo" minlength="10" placeholder="Ex: Ligar para o médico..." />
+                        </div>
+                        <button class="btn" type="submit" onclick="this.blur()" ons>
                 <svg
                   width="82"
                   height="82"
@@ -301,30 +277,19 @@
                   />
                 </svg>
               </button>
-            </form>
-          </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/validation.js"></script>
     <script src="js/cardGenerator.js"></script>
     <script src="js/formHandler.js"></script>
     <script src="js/darkMode.js"></script>
-  </body>
+</body>
+
 </html>

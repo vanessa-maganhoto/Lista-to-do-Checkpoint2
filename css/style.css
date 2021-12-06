@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+:root {
+    --clr-black: #232323;
+    --clr-white: #efefef;
+    --clr-blue: #56ABEF;
+    --clr-purple: #595AD3;
+    --clr-dark-yellow: #cc8a29;
+    --clr-light-yellow: #eaa22d;
+    --ff-headings: 'Ubuntu', sans-serif;
+    --ff-body: 'JetBrains Mono', monospace;
+}
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -14,41 +23,40 @@ header {
     margin: 0 10px;
 }
 
-body{
-    background:#EFEFEF;
+body {
+    background: var(--clr-white);
 }
 
-.opcao{
+.opcao {
     float: left;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--ff-body);
 }
 
-.tarefa{
+.tarefa {
     list-style: none;
 }
 
-
-header nav{
+header nav {
     line-height: 100px;
     display: inline;
 }
 
-header nav a:hover{
+header nav a:hover {
     text-decoration-line: underline;
     text-decoration-style: solid
-
 }
 
 main {
     width: 90%;
-    max-width:700px;
+    max-width: 700px;
     margin: auto;
     overflow: hidden;
 }
 
+
 /* Estilização dos botões de adicionar tarefas, incluindo animação durante hover e remoção do outlide */
 
-button{
+button {
     background-color: transparent;
 }
 
@@ -65,19 +73,20 @@ button{
 .btn:focus:not(:focus-visible) {
     outline: 0;
     box-shadow: none;
-  }
+}
 
 .btn svg {
     height: 2rem;
     width: 2rem;
 }
 
+
 /* Estilo da lista de tarefas */
 
 .tarefa {
     display: flex;
     align-items: center;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--ff-body);
     justify-content: center;
     margin: 1.5rem;
 }
@@ -136,16 +145,16 @@ button{
     align-items: center;
 }
 
-.datas > span {
+.datas>span {
     display: flex;
     align-items: center;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--ff-headings);
     font-weight: 700;
 }
 
 .dataCriacao-todo {
     margin-bottom: 8px;
-    color: #56ABEF;
+    color: var(--clr-blue);
 }
 
 .dataCriacao-todo svg {
@@ -155,15 +164,15 @@ button{
 }
 
 .dataCriacao-todo path {
-    fill: #56ABEF;
+    fill: var(--clr-blue);
 }
 
 .prazo-todo {
-    color: #cc8a29;
+    color: var(--clr-dark-yellow);
 }
 
 .escuro .prazo-todo {
-    color: #eaa22d;
+    color: var(--clr-light-yellow);
 }
 
 .prazo-todo svg {
@@ -173,7 +182,7 @@ button{
 }
 
 .prazo-todo path {
-    fill: #cc8a29;
+    fill: var(--clr-dark-yellow);
 }
 
 .editar-todo.btn {
@@ -191,28 +200,30 @@ button{
 }
 
 .editar-todo path {
-    fill: #232323;
+    fill: var(--clr-black);
 }
+
 
 /* Lista de tarefas concluídas */
 
 .concluida .linha {
-    border-bottom: 1px solid #56ABEF;
-    color: #56ABEF;
+    border-bottom: 1px solid var(--clr-blue);
+    color: var(--clr-blue);
 }
 
 .concluida .editar-todo path {
-    fill: #56ABEF;
+    fill: var(--clr-blue);
 }
 
-.concluida .titulo-todo{
+.concluida .titulo-todo {
     text-decoration: line-through;
 }
+
 
 /* Estilo do modal e formulário */
 
 .modal-content {
-    background-color: #EFEFEF;
+    background-color: var(--clr-white);
 }
 
 .modal-header {
@@ -247,11 +258,11 @@ button{
 }
 
 label[for=dataCriacao] {
-    color: #56ABEF;
+    color: var(--clr-blue);
 }
 
 label[for=prazo] {
-    color: #cc8a29;
+    color: var(--clr-dark-yellow);
 }
 
 .formfield input {
@@ -265,11 +276,11 @@ label[for=prazo] {
 }
 
 input[name=dataCriacao] {
-    color: #56ABEF;
+    color: var(--clr-blue);
 }
 
 input[name=prazo] {
-    color: #cc8a29;
+    color: var(--clr-dark-yellow);
 }
 
 #adicionar-form button {
@@ -279,118 +290,117 @@ input[name=prazo] {
 
 /*Modo claro*/
 
-.titulo{
+.titulo {
     margin: 30px;
-    font-family: 'Ubuntu', sans-serif;
-    color:#56ABEF;
+    font-family: var(--ff-headings);
+    color: var(--clr-blue);
     text-align: center;
 }
 
-.clique-modo-escuro{
-    position:fixed;
+.clique-modo-escuro {
+    position: fixed;
     right: 30px;
     text-decoration: none;
-    color:#232323;
+    color: var(--clr-black);
 }
 
-.clique-modo-escuro:hover{
-    color: #232323;
+.clique-modo-escuro:hover {
+    color: var(--clr-black);
 }
 
-.nav-modo-claro{
+.nav-modo-claro {
     text-decoration: none;
-    color:#232323;
+    color: var(--clr-black);
 }
 
-.nav-modo-claro:hover{
-    color: #232323;
-
+.nav-modo-claro:hover {
+    color: var(--clr-black);
 }
+
 
 /*Modo Escuro*/
 
-.escuro{
-    background-color:#232323;
+.escuro {
+    background-color: var(--clr-black);
 }
 
-.escuro span{
-    color: #EFEFEF;
+.escuro span {
+    color: var(--clr-white);
 }
 
-.escuro .titulo{
-    color: #595AD3;
+.escuro .titulo {
+    color: var(--clr-purple);
 }
 
-.escuro .nav-modo-claro{
-    color: #EFEFEF;
+.escuro .nav-modo-claro {
+    color: var(--clr-white);
 }
 
-.escuro .nav-modo-claro:hover{
+.escuro .nav-modo-claro:hover {
     text-decoration-line: underline;
     text-decoration-style: solid;
-    
 }
 
-.escuro .clique-modo-escuro{
-    color: #EFEFEF;
+.escuro .clique-modo-escuro {
+    color: var(--clr-white);
 }
 
 .escuro .tarefa:not(.concluida) .btn path {
-    stroke: #efefef;
+    stroke: var(--clr-white);
 }
 
 .escuro #li-adicionar .btn path {
-    fill: #efefef;
+    fill: var(--clr-white);
 }
 
 .escuro .linha {
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 1px solid var(--clr-white);
 }
 
 .escuro .dataCriacao-todo path {
-    fill: #595AD3;
+    fill: var(--clr-purple);
 }
 
 .escuro .prazo-todo path {
-    fill: #eaa22d;
+    fill: var(--clr-light-yellow);
 }
 
 .escuro .editar-todo path {
-    fill: #EFEFEF;
+    fill: var(--clr-white);
 }
 
 .escuro .concluida .editar-todo path {
-    fill: #595AD3;
+    fill: var(--clr-purple);
 }
 
 .escuro .dataCriacao-todo span {
-    color: #595AD3;
+    color: var(--clr-purple);
 }
 
 .escuro .prazo-todo span {
-    color: #eaa22d;
+    color: var(--clr-light-yellow);
 }
 
 .escuro .preenchida path {
-    stroke: #595AD3;
+    stroke: var(--clr-purple);
 }
 
 .escuro .preenchida path:nth-last-child(1) {
-    fill: #595AD3;
+    fill: var(--clr-purple);
 }
 
 .escuro .concluida .linha {
-    border-bottom: 1px solid #595AD3;
-    color: #595AD3;
+    border-bottom: 1px solid var(--clr-purple);
+    color: var(--clr-purple);
 }
 
-.escuro .concluida .titulo-todo{
-    color: #595AD3;
+.escuro .concluida .titulo-todo {
+    color: var(--clr-purple);
 }
 
 .escuro .modal-content {
-    color: #EFEFEF;
-    background-color: #232323;
+    color: var(--clr-white);
+    background-color: var(--clr-black);
     font-family: 'Ubunto', sans-serif;
 }
 
@@ -399,16 +409,16 @@ input[name=prazo] {
 }
 
 .escuro label[for=dataCriacao] {
-    color: #595AD3;
+    color: var(--clr-purple);
 }
 
 .escuro label[for=prazo] {
-    color: #eaa22d;
+    color: var(--clr-light-yellow);
 }
 
 .escuro .formfield input {
     background-color: rgba(239, 239, 239, 0.1);
-    color: #EFEFEF;
+    color: var(--clr-white);
     border-bottom: 1px solid rgba(239, 239, 239, 0.3);
 }
 
@@ -417,25 +427,33 @@ input[name=prazo] {
 }
 
 .escuro input[name=dataCriacao] {
-    color: #595AD3;
+    color: var(--clr-purple);
 }
 
 .escuro input[name=prazo] {
-    color: #eaa22d;
+    color: var(--clr-light-yellow);
 }
 
 .escuro #adicionar-form button path {
-    fill: #efefef;
+    fill: var(--clr-white);
 }
+
 
 /*PÁGINA API*/
 
-
-.tarefaConcluida{
+.tarefaConcluida {
     text-decoration: line-through;
 }
 
-#gerarCard{
+#gerarCard {
+    font-family: var(--ff-body);
+    margin-bottom: 1rem;
     align-items: center;
+    border-radius: 50px;
+    border-color: var(--clr-black);
 }
 
+.escuro #gerarCard {
+    color: var(--clr-white);
+    border-color: var(--clr-white);
+}
