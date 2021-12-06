@@ -73,14 +73,14 @@ Parabéns! Você acaba de finalizar o segundo checkpoint de Front End II!
 </br>
 
 ### :calling: Design da Aplicação:
-<center><img src="https://media.giphy.com/media/xETLoEfMeeECeKIzua/giphy.gif"></center>
+<center><img src="https://media.giphy.com/media/q4nw5Na9j1E67wXhzC/giphy.gif"></center>
 
 
 ## :necktie: Equipe: 
 
 + André Padilha: https://github.com/awpadilha
 + Kantuta Molina: https://github.com/KantutaMolina
-+ Matheus Days: https://github.com/Matheus-Days
++ Matheus Braga: https://github.com/Matheus-Days
 + Pedro Menezes: https://github.com/pdrmenezes
 + Phillipe Borges: https://github.com/phillipeborges
 + Vanessa Maganhoto: https://github.com/vanessa-maganhoto
