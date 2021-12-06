@@ -54,7 +54,7 @@ main {
 }
 
 
-/* Estilização dos botões de adicionar tarefas, incluindo animação durante hover e remoção do outlide */
+/* Estilização dos botões de adicionar tarefas, incluindo animação durante hover e remoção do outline */
 
 button {
     background-color: transparent;
@@ -318,7 +318,7 @@ input[name=prazo] {
 }
 
 
-/*Modo Escuro*/
+/* Modo Escuro */
 
 .escuro {
     background-color: var(--clr-black);
@@ -439,11 +439,7 @@ input[name=prazo] {
 }
 
 
-/*PÁGINA API*/
-
-.tarefaConcluida {
-    text-decoration: line-through;
-}
+/* PÁGINA API */
 
 #gerarCard {
     font-family: var(--ff-body);
