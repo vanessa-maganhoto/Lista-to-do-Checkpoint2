@@ -185,21 +185,21 @@ button {
     fill: var(--clr-dark-yellow);
 }
 
-.editar-todo.btn {
+.excluir-todo.btn {
     margin-bottom: 1rem;
 }
 
-.editar-todo {
+.excluir-todo {
     height: min-content;
     padding: 2px;
 }
 
-.editar-todo svg {
+.excluir-todo svg {
     height: 1.5rem;
     margin-bottom: -1rem;
 }
 
-.editar-todo path {
+.excluir-todo path {
     fill: var(--clr-black);
 }
 
@@ -211,7 +211,7 @@ button {
     color: var(--clr-blue);
 }
 
-.concluida .editar-todo path {
+.concluida .excluir-todo path {
     fill: var(--clr-blue);
 }
 
@@ -365,11 +365,11 @@ input[name=prazo] {
     fill: var(--clr-light-yellow);
 }
 
-.escuro .editar-todo path {
+.escuro .excluir-todo path {
     fill: var(--clr-white);
 }
 
-.escuro .concluida .editar-todo path {
+.escuro .concluida .excluir-todo path {
     fill: var(--clr-purple);
 }
 
