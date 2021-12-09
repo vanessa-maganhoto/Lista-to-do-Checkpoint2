@@ -44,108 +44,126 @@ const lixeiraSvg = `<svg width="60" height="76" viewBox="0 0 60 76" fill="none" 
 
 // Função que recebe as informações de cada tarefa (obtidas no formulário) e gera um elemento já estilizado contendo-as.
 function generateCard(info = { dataCriacao: "", prazo: "", titulo: "" }) {
-  const tarefa = document.createElement("li");
-  tarefa.className = "tarefa";
+    const tarefa = document.createElement("li");
+    tarefa.className = "tarefa";
 
-  const marcarBtn = document.createElement("button");
-  marcarBtn.classList.add("btn", "marcar");
-  marcarBtn.innerHTML = bolinhaSvg;
-  // Adiciona a função de mover para a lista de concluídas quando clicar no botão.
-  marcarBtn.addEventListener("click", (e) => {
-    moveToDone(e.currentTarget.parentElement);
-  });
+    const marcarBtn = document.createElement("button");
+    marcarBtn.classList.add("btn", "marcar");
+    marcarBtn.innerHTML = bolinhaSvg;
+    // Adiciona a função de mover para a lista de concluídas quando clicar no botão.
+    marcarBtn.addEventListener("click", (e) => {
+        moveToDone(e.currentTarget.parentElement);
+    });
 
-  const linha = document.createElement("div");
-  linha.className = "linha";
+    const linha = document.createElement("div");
+    linha.className = "linha";
 
-  const tituloTodo = document.createElement("span");
-  tituloTodo.className = "titulo-todo";
-  tituloTodo.innerText = info.titulo;
+    const tituloTodo = document.createElement("span");
+    tituloTodo.className = "titulo-todo";
+    tituloTodo.innerText = info.titulo;
 
-  linha.appendChild(tituloTodo);
+    linha.appendChild(tituloTodo);
 
-  const fimDaLinha = document.createElement("span");
-  fimDaLinha.className = "fim-da-linha";
+    const fimDaLinha = document.createElement("span");
+    fimDaLinha.className = "fim-da-linha";
 
-  const datas = document.createElement("span");
-  datas.className = "datas";
+    const datas = document.createElement("span");
+    datas.className = "datas";
 
-  const dataCriacaoTodo = document.createElement("span");
-  dataCriacaoTodo.className = "dataCriacao-todo";
-  dataCriacaoTodo.innerHTML = dataCriacaoSvg;
+    const dataCriacaoTodo = document.createElement("span");
+    dataCriacaoTodo.className = "dataCriacao-todo";
+    dataCriacaoTodo.innerHTML = dataCriacaoSvg;
 
-  const dataCriacao = document.createElement("span");
-  dataCriacao.innerText = info.dataCriacao;
+    const dataCriacao = document.createElement("span");
+    dataCriacao.innerText = info.dataCriacao;
 
-  dataCriacaoTodo.appendChild(dataCriacao);
+    dataCriacaoTodo.appendChild(dataCriacao);
 
-  const prazoTodo = document.createElement("span");
-  prazoTodo.className = "prazo-todo";
-  prazoTodo.innerHTML = prazoSvg;
+    const prazoTodo = document.createElement("span");
+    prazoTodo.className = "prazo-todo";
+    prazoTodo.innerHTML = prazoSvg;
 
-  const prazo = document.createElement("span");
-  prazo.innerText = info.prazo;
+    const prazo = document.createElement("span");
+    prazo.innerText = info.prazo;
 
-  prazoTodo.appendChild(prazo);
+    prazoTodo.appendChild(prazo);
 
-  datas.appendChild(dataCriacaoTodo);
-  datas.appendChild(prazoTodo);
+    datas.appendChild(dataCriacaoTodo);
+    datas.appendChild(prazoTodo);
 
-  fimDaLinha.appendChild(datas);
+    fimDaLinha.appendChild(datas);
 
-  const excluirTodo = document.createElement("button");
-  excluirTodo.classList.add("excluir-todo", "btn");
-  excluirTodo.innerHTML = lixeiraSvg;
-  // Adiciona a função de deletar o li.
-  excluirTodo.addEventListener("click", (e) => {
-    tarefa.remove();
-  });
+    const excluirTodo = document.createElement("button");
+    excluirTodo.classList.add("excluir-todo", "btn");
+    excluirTodo.innerHTML = lixeiraSvg;
+    // Adiciona a função de deletar o li.
+    excluirTodo.addEventListener("click", (e) => {
+        Swal.fire({
+            title: 'Excluir tarefa',
+            text: "Tem certeza que deseja excluir essa tarefa?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#56ABEF',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, eu sei o que estou fazendo!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Apagada!',
+                    'A sua tarefa foi apagada com sucesso.',
+                    'success'
+                )
+                tarefa.remove();
+            }
+        })
+    });
 
-  fimDaLinha.appendChild(excluirTodo);
+    fimDaLinha.appendChild(excluirTodo);
 
-  linha.appendChild(fimDaLinha);
+    linha.appendChild(fimDaLinha);
 
-  tarefa.appendChild(marcarBtn);
-  tarefa.appendChild(linha);
+    tarefa.appendChild(marcarBtn);
+    tarefa.appendChild(linha);
 
-  // Aqui não fazemos apenas um appendChild, pois não queremos que a nova tarefa fique abaixo do botão de adicionar tarefas, mas acima. 
-  const toDoList = document.getElementById("to-do-list");
-  const liAdicionar = document.getElementById("li-adicionar");
-  toDoList.insertBefore(tarefa, liAdicionar);
+    // Aqui não fazemos apenas um appendChild, pois não queremos que a nova tarefa fique abaixo do botão de adicionar tarefas, mas acima. 
+    const toDoList = document.getElementById("to-do-list");
+    const liAdicionar = document.getElementById("li-adicionar");
+    toDoList.insertBefore(tarefa, liAdicionar);
 }
 
 // Função que move uma tarefa para a lista de tarefas concluídas.
 function moveToDone(target) {
-  const tarefasConcluidas = document.querySelector(".tarefas-concluidas");
-  // Obs: quando o appendChild é chamado, ele já se responsabiliza não só por colocar o elemento no local desejado, mas apagá-lo do local antigo, caso já estivesse na árvore de elementos.
-  tarefasConcluidas.appendChild(target);
+    const tarefasConcluidas = document.querySelector(".tarefas-concluidas");
+    // Obs: quando o appendChild é chamado, ele já se responsabiliza não só por colocar o elemento no local desejado, mas apagá-lo do local antigo, caso já estivesse na árvore de elementos.
+    tarefasConcluidas.appendChild(target);
 
-  target.classList.add("concluida");
+    target.classList.add("concluida");
 
-  // Aqui é dado o nome da variável não pensando no que o querySelector retornou, mas, sim, pensando no elemento que vamos transformá-lo.
-  const desmarcarBtn = target.querySelector(".marcar");
+    // Aqui é dado o nome da variável não pensando no que o querySelector retornou, mas, sim, pensando no elemento que vamos transformá-lo.
+    const desmarcarBtn = target.querySelector(".marcar");
 
-  desmarcarBtn.className = "btn preenchida";
-  desmarcarBtn.innerHTML = preenchidaSvg;
-  desmarcarBtn.addEventListener("click", (e) => {
-    moveToDo(e.currentTarget.parentElement);
-  });
+    desmarcarBtn.className = "btn preenchida";
+    desmarcarBtn.innerHTML = preenchidaSvg;
+    desmarcarBtn.addEventListener("click", (e) => {
+        moveToDo(e.currentTarget.parentElement);
+    });
 }
 
 // Função que move uma tarefa concluída para a lista de tarefas a fazer.
 function moveToDo(target) {
-  const toDoList = document.getElementById("to-do-list");
-  const liAdicionar = document.getElementById("li-adicionar");
-  toDoList.insertBefore(target, liAdicionar);
+    const toDoList = document.getElementById("to-do-list");
+    const liAdicionar = document.getElementById("li-adicionar");
+    toDoList.insertBefore(target, liAdicionar);
 
-  target.className = "tarefa";
+    target.className = "tarefa";
 
-  // Aqui é dado o nome da variável não pensando no que o querySelector retornou, mas, sim, pensando no elemento que vamos transformá-lo.
-  const marcarBtn = target.querySelector(".preenchida");
-  marcarBtn.addEventListener("click", (e) => {
-    moveToDone(e.currentTarget.parentElement);
-  });
+    // Aqui é dado o nome da variável não pensando no que o querySelector retornou, mas, sim, pensando no elemento que vamos transformá-lo.
+    const marcarBtn = target.querySelector(".preenchida");
+    marcarBtn.addEventListener("click", (e) => {
+        moveToDone(e.currentTarget.parentElement);
+    });
 
-  marcarBtn.className = "btn marcar";
-  marcarBtn.innerHTML = bolinhaSvg;
+    marcarBtn.className = "btn marcar";
+    marcarBtn.innerHTML = bolinhaSvg;
 }
